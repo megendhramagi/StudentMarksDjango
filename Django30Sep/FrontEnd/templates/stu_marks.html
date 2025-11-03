@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{
+            border: 1px solid grey;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Class</th>
+                <th>Tamil Mark</th>
+                <th>English Mark</th>
+                <th>Maths Mark</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sdata in all_stu %}
+            <tr>
+                <td>{{sdata.s_name}}</td>
+                <td>{{sdata.s_class}}</td>
+                <td>{{sdata.tamil_mark}}</td>
+                <td>{{sdata.english}}</td>
+                <td>{{sdata.maths}}</td>
+                <td>{{ sdata.tamil_mark|add:sdata.english|add:sdata.maths }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{% url 'markmodify' %}">Update/Delete record</a>
+</body>
+</html>

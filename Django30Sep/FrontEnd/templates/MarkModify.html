@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>WeLCome to ModIFy Tab</h1>
+    <h3>Enter only SID</h3>
+    <br>
+    <form action ="" method ="POST">
+        {% csrf_token %}
+    <label>SID</label>
+    <input type="number" name="id" value="{{id.sid}}">
+    <input type="submit" value ='Procced'>
+    </form>
+    <br>
+    <h2>Update form</h2>
+    <form action="{% url 'markupdate'  %}" method="POST">
+        {% csrf_token %}
+        {{ mark_form }}   <br>     
+        <input type="submit" value="Update"> <br>
+    </form>
+    <a href = "{% url 'markdelete' id.sid|add:'0' %}"><button>Delete</button></a> 
+</body>
+</html>
